@@ -1,0 +1,18 @@
+import pandas as pd
+from pandas_profiling import ProfileReport
+
+# df = pd.read_csv("../input/car-price/datasets_383055_741735_CarPrice_Assignment.csv")
+df = pd.read_csv(file_name)
+profile = ProfileReport(
+    df, title="Titanic Dataset", html={"style": {"full_width": True}}, sort=None
+)
+
+profile.to_widgets() # for jupyter notebooks
+profile.to_notebook_iframe() # for HTML reports
+profile.to_file("your_report.html") # for HTML reports
+
+# As a JSON string
+json_data = profile.to_json()
+
+# As a file
+profile.to_file("your_report.json")
