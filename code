@@ -1,4 +1,4 @@
-pip install -U pandas-profiling[notebook]
+pip install pandas-profiling            
 # https://github.com/ydataai/pandas-profiling
 import pandas as pd
 from pandas_profiling import ProfileReport
@@ -18,3 +18,25 @@ json_data = profile.to_json()
 
 # As a file
 profile.to_file("your_report.json")
+
+
+
+## sweetviz
+pip install sweetviz
+
+import sweetviz as sv
+sweet_report = sv.analyze(df)
+sweet_report.show_html('sweet_report.html')
+
+# comparing two datasets
+df1 = sv.compare(df[102:], df[:102])
+df1.show_html('Compare.html')
+
+
+# autoviz
+pip install autoviz
+from autoviz.AutoViz_Class import AutoViz_Class
+AV = AutoViz_Class()
+df = AV.AutoViz('../input/car-price/datasets_383055_741735_CarPrice_Assignment.csv')
+# with respect to dependent variable
+df = AV.AutoViz('../input/car-price/datasets_383055_741735_CarPrice_Assignment.csv', depVar='highwaympg')
