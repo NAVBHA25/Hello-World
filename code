@@ -1,3 +1,5 @@
+pip install -U pandas-profiling[notebook]
+# https://github.com/ydataai/pandas-profiling
 import pandas as pd
 from pandas_profiling import ProfileReport
 
